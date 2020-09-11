@@ -25,10 +25,10 @@ class PostsList {
           .map<Post>((post) => Post.fromJson(post))
           .toList();
 
-      print('Cache');
+      print('Loading posts from cache');
       
     } else {
-      print('Api');
+      print('Loading posts from API');
 
       try {
         await client.get(postsUrl, headers: headers).then((response) {
