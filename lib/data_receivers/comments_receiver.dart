@@ -7,6 +7,7 @@ import 'package:app_for_leadit/json_decoders/comment_info.dart';
 
 class CommentsReceiver {
   String commentsFileName = 'commentsdata.json';
+
   Future<List<Comment>> get getComments async {
     Map<String, String> headers = {"Content-type": "application/json"};
     List<Comment> comments;
@@ -28,6 +29,8 @@ class CommentsReceiver {
         await http.get(commentsUrl, headers: headers).then((response) {
           Iterable list = json.decode(response.body);
           comments = list.map((comment) => Comment.fromJson(comment)).toList();
+          
+          //store comments json to file
           commentsFile.writeAsStringSync(response.body,
               flush: true, mode: FileMode.write);
         });

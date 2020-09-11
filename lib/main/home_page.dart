@@ -9,6 +9,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    //Caches the instance of a futures.
+    //When Widget rebuilds, returns
+    //the previously created instance,
+    //if the instance wasn't changed, without calling valueBuilder.
+
     final futurePosts = useMemoized(() => PostsList().postsList);
     final futureUsers = useMemoized(() => UserReceiver().getUsers);
     final futureComments = useMemoized(() => CommentsReceiver().getComments);

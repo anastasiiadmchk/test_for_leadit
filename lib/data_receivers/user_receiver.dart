@@ -31,6 +31,7 @@ class UserReceiver {
         await http.get(usersUrl, headers: headers).then((response) {
           Iterable list = json.decode(response.body);
           usersList = list.map((user) => User.fromJson(user)).toList();
+          //writes users to file
           usersFile.writeAsStringSync(response.body,
               flush: true, mode: FileMode.write);
         });
