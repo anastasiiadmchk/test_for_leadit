@@ -9,7 +9,7 @@ import 'package:app_for_leadit/json_decoders/user_info.dart';
 class UserReceiver {
   String usersFileName = 'usersdata.json';
 
-  Future<List<User>> getUsers() async {
+  Future<List<User>> get getUsers async {
     Map<String, String> headers = {"Content-type": "application/json"};
     List<User> usersList;
 

@@ -7,7 +7,7 @@ import 'package:app_for_leadit/json_decoders/comment_info.dart';
 
 class CommentsReceiver {
   String commentsFileName = 'commentsdata.json';
-  Future<List<Comment>> getComments() async {
+  Future<List<Comment>> get getComments async {
     Map<String, String> headers = {"Content-type": "application/json"};
     List<Comment> comments;
 

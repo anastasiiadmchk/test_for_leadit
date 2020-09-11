@@ -10,8 +10,8 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final futurePosts = useMemoized(() => PostsList().postsList);
-    final futureUsers = useMemoized(() => UserReceiver().getUsers());
-    final futureComments = useMemoized(() => CommentsReceiver().getComments());
+    final futureUsers = useMemoized(() => UserReceiver().getUsers);
+    final futureComments = useMemoized(() => CommentsReceiver().getComments);
 
     return SafeArea(
         child: Scaffold(
