@@ -1,16 +1,7 @@
-# app_for_leadit
+# Test application for LeadIt
 
-A new Flutter project.
+It contains user posts and comments which are loaded from RestAPI and also are locally stored in cache.
 
-## Getting Started
+## Appearence example
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](assets/gif_for_readme/test_for_leadit_screen_record.gif)
