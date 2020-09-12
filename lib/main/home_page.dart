@@ -1,22 +1,18 @@
-import 'package:app_for_leadit/data_receivers/comments_receiver.dart';
-import 'package:app_for_leadit/data_receivers/posts_list_receiver.dart';
-import 'package:app_for_leadit/data_receivers/user_receiver.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:app_for_leadit/data_receivers/comments_provider.dart';
+import 'package:app_for_leadit/data_receivers/posts_provider.dart';
+import 'package:app_for_leadit/data_receivers/users_provider.dart';
 import 'package:app_for_leadit/json_decoders/post_info.dart';
 import 'package:app_for_leadit/post/post_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HomePage extends HookWidget {
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Caches the instance of a futures.
-    //When Widget rebuilds, returns
-    //the previously created instance,
-    //if the instance wasn't changed, without calling valueBuilder.
-
-    final futurePosts = useMemoized(() => PostsList().postsList);
-    final futureUsers = useMemoized(() => UserReceiver().getUsers);
-    final futureComments = useMemoized(() => CommentsReceiver().getComments);
+    var postsList = Provider.of<PostsProvider>(context, listen: false);
+    var commentsList = Provider.of<CommentsProvider>(context, listen: false);
+    var usersList = Provider.of<UsersProvider>(context, listen: false);
 
     return SafeArea(
         child: Scaffold(
@@ -24,7 +20,7 @@ class HomePage extends HookWidget {
               title: Text('Posts'),
             ),
             body: FutureBuilder(
-                future: Future.wait([futurePosts, futureUsers, futureComments]),
+                future: Future.wait([postsList.getAllPosts(), usersList.getAllUsers(), commentsList.getAllComments()]),
                 builder: (context, snapshotPosts) {
                   if (snapshotPosts.hasError) print(snapshotPosts.error);
 
