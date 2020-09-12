@@ -6,7 +6,6 @@ import 'package:app_for_leadit/data_receivers/users_provider.dart';
 import 'package:app_for_leadit/json_decoders/post_info.dart';
 import 'package:app_for_leadit/post/post_widget.dart';
 
-
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,11 @@ class HomePage extends StatelessWidget {
               title: Text('Posts'),
             ),
             body: FutureBuilder(
-                future: Future.wait([postsList.getAllPosts(), usersList.getAllUsers(), commentsList.getAllComments()]),
+                future: Future.wait([
+                  postsList.getAllPosts(),
+                  usersList.getAllUsers(),
+                  commentsList.getAllComments()
+                ]),
                 builder: (context, snapshotPosts) {
                   if (snapshotPosts.hasError) print(snapshotPosts.error);
 

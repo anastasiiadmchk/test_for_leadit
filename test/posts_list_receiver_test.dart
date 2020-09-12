@@ -33,7 +33,13 @@ void main() {
   testDart.test('Posts list cache refreshes successfuly', () {
     final postsProvider = PostsProvider();
     postsProvider.addListener(() {
-      expect(DateTime(postsProvider.lastFetchTime.hour, postsProvider.lastFetchTime.minute, postsProvider.lastFetchTime.second), DateTime(DateTime.now().hour, DateTime.now().minute, DateTime.now().second));
+      expect(
+          DateTime(
+              postsProvider.lastFetchTime.hour,
+              postsProvider.lastFetchTime.minute,
+              postsProvider.lastFetchTime.second),
+          DateTime(DateTime.now().hour, DateTime.now().minute,
+              DateTime.now().second));
     });
     postsProvider.refreshAllPosts();
   });

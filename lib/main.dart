@@ -15,14 +15,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<PostsProvider>(
-    create: (context) => PostsProvider()),
-    ChangeNotifierProvider<UsersProvider>(
-    create: (context) => UsersProvider()),
-    ChangeNotifierProvider<CommentsProvider>(
-    create: (context) => CommentsProvider()),
-
+            create: (context) => PostsProvider()),
+        ChangeNotifierProvider<UsersProvider>(
+            create: (context) => UsersProvider()),
+        ChangeNotifierProvider<CommentsProvider>(
+            create: (context) => CommentsProvider()),
       ],
-          child: MaterialApp(
+      child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.purple,
